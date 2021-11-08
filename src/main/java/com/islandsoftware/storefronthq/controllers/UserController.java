@@ -1,4 +1,4 @@
-package com.islandsoftware.storefronthq.resources;
+package com.islandsoftware.storefronthq.controllers;
 
 import com.islandsoftware.storefronthq.domain.User;
 import com.islandsoftware.storefronthq.orchestration.UserOrchestration;
@@ -9,7 +9,7 @@ import java.util.Collection;
 
 @RestController
 @AllArgsConstructor
-public class UserResource {
+public class UserController {
 
     private final UserOrchestration userOrchestration;
 

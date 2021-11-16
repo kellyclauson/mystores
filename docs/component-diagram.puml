@@ -1,0 +1,20 @@
+@startuml
+title \nMyStores Component Diagram\n
+skinparam componentStyle uml2
+
+interface "API" as api
+
+[MyStoresAPI]
+[Owner]
+[Store]
+[Product]
+[Variation]
+[InventoryManager]
+[InventoryRulesManager]
+[StoreSync]
+[StoreAdpater]
+[DB]
+
+
+api -right-> [MyStoresAPI] : /manageMyStore
+@enduml

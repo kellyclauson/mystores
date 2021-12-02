@@ -16,8 +16,7 @@ import java.util.List;
 public class UserOrchestration {
 
     private final UserDataService userDataService;
-    @Autowired
-    private UserRepository userRepository;
+    private final  UserRepository userRepository;
 
     public User addUser(final String userId, final String dob) {
         final User user = new User();

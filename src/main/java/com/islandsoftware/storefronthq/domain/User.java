@@ -6,6 +6,7 @@ import lombok.Generated;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -17,7 +18,7 @@ public class User {
     private Integer id;
     private String userId;
     private String dob;
-//    private ArrayList<Shop> shops = new ArrayList<>();
+    private List<Shop> shops = new ArrayList<>();
 
 
 

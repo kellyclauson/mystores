@@ -1,0 +1,745 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "version": "v1",
+    "title": "Store Front HQ",
+    "description": ""
+  },
+  "paths": {
+    "/admin/user": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "Create a user.",
+        "operationId": "createUser",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUser"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/admin/user/{userId}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "Get a user.",
+        "operationId": "getUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "description": "Update a user.",
+        "operationId": "updateUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUser"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "description": "Remove a user.",
+        "operationId": "deleteUser",
+        "parameters": [
+          {
+            "name": "userId",
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inventory": {
+      "put": {
+        "tags": [
+          "Inventory"
+        ],
+        "description": "Set the inventory.",
+        "operationId": "setInventory",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Inventory"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inventory/product": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Create a product.",
+        "operationId": "createProduct",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateProduct"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/inventory/product/{productId}": {
+      "get": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Get a product.",
+        "operationId": "getProduct",
+        "parameters": [
+          {
+            "name": "productId",
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Update a product.",
+        "operationId": "updateProduct",
+        "parameters": [
+          {
+            "name": "productId",
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProduct"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Remove a product.",
+        "operationId": "deleteProduct",
+        "parameters": [
+          {
+            "name": "productId",
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/process/sale": {
+      "post": {
+        "tags": [
+          "Process"
+        ],
+        "description": "Process a sale.",
+        "operationId": "processSale",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProcessSale"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CreateUser": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseUser"
+          },
+          {
+            "type": "object",
+            "description": "Fields to create a user",
+            "required": [
+              "name",
+              "email"
+            ]
+          }
+        ]
+      },
+      "UpdateUser": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/User"
+          },
+          {
+            "type": "object",
+            "description": "Fields to update a user",
+            "required": [
+              "id"
+            ]
+          }
+        ]
+      },
+      "User": {
+        "allOf": [
+          {
+            "type": "object",
+            "description": "A Store Front HQ user",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "the user id"
+              }
+            }
+          },
+          {
+            "$ref": "#/components/schemas/BaseUser"
+          }
+        ]
+      },
+      "BaseUser": {
+        "type": "object",
+        "description": "Base user fields",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "user name"
+          },
+          "email": {
+            "type": "string",
+            "description": "user email"
+          }
+        }
+      },
+      "CreateProduct": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseProduct"
+          },
+          {
+            "type": "object",
+            "description": "Fields to create a product",
+            "required": [
+              "name",
+              "email"
+            ]
+          }
+        ]
+      },
+      "UpdateProduct": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/Product"
+          },
+          {
+            "type": "object",
+            "description": "Fields to update a product",
+            "required": [
+              "id"
+            ]
+          }
+        ]
+      },
+      "Product": {
+        "allOf": [
+          {
+            "type": "object",
+            "description": "A Store Front HQ product",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "the product id"
+              }
+            }
+          },
+          {
+            "$ref": "#/components/schemas/BaseProduct"
+          }
+        ]
+      },
+      "BaseProduct": {
+        "type": "object",
+        "description": "Base product fields",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "product name"
+          },
+          "sku": {
+            "type": "string",
+            "description": "product sku"
+          },
+          "category": {
+            "type": "string",
+            "description": "product category"
+          },
+          "title": {
+            "type": "string",
+            "description": "product title"
+          },
+          "url": {
+            "type": "string",
+            "description": "product url"
+          },
+          "basePrice": {
+            "type": "number",
+            "description": "product base price"
+          },
+          "weight": {
+            "type": "number",
+            "description": "product weight"
+          },
+          "manufacturer": {
+            "type": "string",
+            "description": "product manufacturer"
+          },
+          "type": {
+            "type": "string",
+            "description": "product type"
+          },
+          "description": {
+            "type": "string",
+            "description": "product description"
+          },
+          "metaDescription": {
+            "type": "string",
+            "description": "product meta description"
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Image"
+            }
+          }
+        }
+      },
+      "Image": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "product image name"
+          },
+          "url": {
+            "type": "string",
+            "description": "product image url"
+          }
+        }
+      },
+      "Inventory": {
+        "type": "object",
+        "properties": {
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
+          }
+        }
+      },
+      "ProductInfo": {
+        "type": "object",
+        "properties": {
+          "quantity": {
+            "type": "integer",
+            "description": "Number of products sold"
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
+          }
+        }
+      },
+      "ProcessSale": {
+        "type": "object",
+        "properties": {
+          "productInfo": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProductInfo"
+            }
+          }
+        }
+      },
+      "ApiError": {
+        "type": "object",
+        "properties": {
+          "httpCode": {
+            "type": "integer",
+            "description": "The HTTP status code."
+          },
+          "eventId": {
+            "type": "string",
+            "description": "An id to identify the request and response transaction."
+          },
+          "errorCode": {
+            "type": "integer",
+            "description": "The service-specific error code."
+          },
+          "message": {
+            "type": "string",
+            "description": "The reason for the error."
+          },
+          "detail": {
+            "type": "string",
+            "description": "Optional details on the cause of this error."
+          }
+        }
+      }
+    }
+  }
+}

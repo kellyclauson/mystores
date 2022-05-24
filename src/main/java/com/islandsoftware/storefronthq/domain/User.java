@@ -18,6 +18,7 @@ public class User {
     private Integer id;
     private String userId;
     private String dob;
+    @OneToMany(mappedBy = "user")
     private List<Shop> shops = new ArrayList<>();
 
 

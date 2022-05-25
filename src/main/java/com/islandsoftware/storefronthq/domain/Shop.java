@@ -1,5 +1,6 @@
 package com.islandsoftware.storefronthq.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
 
@@ -19,6 +20,7 @@ public class Shop {
 
     @ManyToOne
     @JoinColumn(name = "userId")
+    @JsonBackReference
 //    private String userId;
     private User user;
     //Login details?

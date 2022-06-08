@@ -2,6 +2,7 @@ package com.islandsoftware.storefronthq.controllers;
 
 import com.islandsoftware.storefronthq.domain.Shop;
 import com.islandsoftware.storefronthq.domain.User;
+import com.islandsoftware.storefronthq.model.BaseUser;
 import com.islandsoftware.storefronthq.orchestration.UserOrchestration;
 import com.islandsoftware.storefronthq.repositories.UserRepository;
 import lombok.AllArgsConstructor;
@@ -14,15 +15,14 @@ import java.util.Collection;
 @AllArgsConstructor
 public class UserController {
 
-    @Autowired
-    private UserRepository userRepository;
-
     private final UserOrchestration userOrchestration;
 
-    @PostMapping("/user/{userId}")
-    public User addUser(@PathVariable("userId") final String userId,
-                        @RequestParam(name = "dob", required = false) final String dob) {
-        return userOrchestration.addUser(userId, dob);
+//    @PostMapping("/user/{userId}")
+    @PostMapping("/user/add")
+//    public User addUser(@PathVariable("userId") final String userId,
+//                        @RequestParam(name = "dob", required = false) final String dob) {
+    public User addUser(BaseUser baseUser) {
+        return userOrchestration.addUser(baseUser);
     }
 
     @GetMapping("/users")
@@ -31,7 +31,7 @@ public class UserController {
     }
 
     @GetMapping("/user/{userId}")
-    public User getUser(@PathVariable("userId") final String userId) {
+    public User getUser(@PathVariable("userId") final Integer userId) {
         return userOrchestration.getUser(userId);
     }
 

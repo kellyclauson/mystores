@@ -7,9 +7,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
     //User findById(long id);
 
     List<User> findAll();
+
 }

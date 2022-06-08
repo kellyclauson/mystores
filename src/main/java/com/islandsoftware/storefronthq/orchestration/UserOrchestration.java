@@ -3,11 +3,11 @@ package com.islandsoftware.storefronthq.orchestration;
 import com.islandsoftware.storefronthq.data.UserDataService;
 import com.islandsoftware.storefronthq.domain.Shop;
 import com.islandsoftware.storefronthq.domain.User;
+import com.islandsoftware.storefronthq.model.BaseUser;
 import com.islandsoftware.storefronthq.repositories.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import java.util.Collection;
 import java.util.List;
 
@@ -18,14 +18,17 @@ public class UserOrchestration {
     private final UserDataService userDataService;
     private final  UserRepository userRepository;
 
-    public User addUser(final String userId, final String dob) {
-        final User user = new User();
-        user.setUserId(userId);
-        user.setDob(dob);
-//        userDataService.addUser(user);
-        userRepository.save(user);
-
-        return user;
+//    public User addUser(final String userId, final String dob) {
+//        final User user = new User();
+//        user.setUserId(userId);
+//        user.setDob(dob);
+////        userDataService.addUser(user);
+//        userRepository.save(user);
+//
+//        return user;
+//    }
+    public User addUser(BaseUser baseUser) {
+        return userDataService.addUser(baseUser);
     }
 
     public Collection<User> getUsers() {
@@ -36,7 +39,7 @@ public class UserOrchestration {
 //        return userDataService.getUsers();
 //    }
 
-    public User getUser(final String userId) {
+    public User getUser(final Integer userId) {
         return userDataService.getUser(userId);
     }
 

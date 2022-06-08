@@ -512,7 +512,7 @@
             "type": "object",
             "description": "Fields to create a user",
             "required": [
-              "name",
+              "username",
               "email"
             ]
           }
@@ -553,7 +553,7 @@
         "type": "object",
         "description": "Base user fields",
         "properties": {
-          "name": {
+          "username": {
             "type": "string",
             "description": "user name"
           },

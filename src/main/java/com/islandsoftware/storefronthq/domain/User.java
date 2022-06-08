@@ -19,7 +19,7 @@ public class User {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     private String username;
-    private String dob;
+    private String email;
     @OneToMany(mappedBy = "user")
     @JsonManagedReference
     private List<Shop> shops = new ArrayList<>();
